@@ -1,7 +1,7 @@
 import java.util.*;
 import java.math.BigInteger;
 
-public class Main 
+public class Prob15 
 {
   public static void main(String[] args) 
 	{
