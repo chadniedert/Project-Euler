@@ -1,9 +1,11 @@
-import java.util.ArrayList;
+import java.util.*;
+import java.math.BigInteger;
 
 public class Main 
 {
   public static void main(String[] args) 
 	{
+		/*
 		ArrayList<String> first20List = new ArrayList<String>();
     //ArrayList<String> allBinList = new ArrayList<String>();
 
@@ -49,9 +51,22 @@ public class Main
 			countsOf1List.set(count1, incrNum);
 			//System.out.println("Index: " + count1 + " increased and is now " + incrNum);
 			System.out.println("Completed for a = " + a);
+		}*/
+
+		ArrayList<Integer> revCount1List = new ArrayList<Integer>(Arrays.asList(1, 20, 190, 1140, 4845, 15504, 38760, 77520, 125970, 167960, 184756, 167960, 125970, 77520, 38760, 15504, 4845, 1140, 190, 20, 1));
+
+		BigInteger latticeCount = new BigInteger("0");
+
+		for (int i = 0; i < revCount1List.size(); i++)
+		{
+			BigInteger prod = BigInteger.valueOf(revCount1List.get(i)).multiply(BigInteger.valueOf(revCount1List.get(i)));
+			latticeCount = latticeCount.add(prod);
+			System.out.println("lattice count is now " + latticeCount.toString());
 		}
 
-		System.out.println(countsOf1List);
+		System.out.println("lattice count >>> " + latticeCount.toString());
+
+		// System.out.println(countsOf1List);
 /*
 		for (String x : allBinList)
 		{
