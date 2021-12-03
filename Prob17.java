@@ -9,18 +9,19 @@ public class Prob17
 		ArrayList<String> twentyThirtyEtcList = new ArrayList<String>(Arrays.asList("twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"));
 
 		ArrayList<String> twentyTo99List = new ArrayList<String>();
-		ArrayList<String> bigList = new ArrayList<String>();
+		ArrayList<String> oneTo99List = new ArrayList<String>();
+		ArrayList<String> finalList = new ArrayList<String>();
 
-		// add 1-9 to bigList, except for first ""
-		for (int i = 1; i < singleDigList.size(); i++)
+		// add 1-9 to oneTo99List
+		for (String num : singleDigList)
 		{
-			bigList.add(singleDigList.get(i));
+			oneTo99List.add(num);
 		}
 
-		// add 10-19 to bigList
+		// add 10-19 to oneTo99List
 		for (String num : tenTo19List)
 		{
-			bigList.add(num);
+			oneTo99List.add(num);
 		}
 
 		// make list of values for 20-99
@@ -33,13 +34,39 @@ public class Prob17
 			}
 		}
 
-		// add 20-99 to bigList
+		// add 20-99 to oneTo99List
 		for (String num : twentyTo99List)
 		{
-			bigList.add(num);
+			oneTo99List.add(num);
 		}
 
-		System.out.println("bigList: " + bigList);
+		// add 100-999 to finalList
+		for (String singleNum : singleDigList)
+		{
+			for (String secondHalf : oneTo99List)
+			{
+				String str = "";
+				if (secondHalf.equals(""))
+				{
+					str = singleNum + "hundred";
+				}
+				else
+				{
+					str = singleNum + "hundredand" + secondHalf;
+				}
+				finalList.add(str);	
+			}
+		}
+
+		// add 1000 to finalList
+		finalList.add("onethousand");
+
+		// remove "" from index 0
+		finalList.remove(0);
+
+		System.out.println("finalList: " + finalList);
+
+
 
 	}
 }
