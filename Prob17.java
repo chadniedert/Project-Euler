@@ -40,19 +40,25 @@ public class Prob17
 			oneTo99List.add(num);
 		}
 
+		// add 1-99 to finalList
+		for (int i = 1; i < oneTo99List.size(); i++)
+		{
+			finalList.add(oneTo99List.get(i));
+		}
+
 		// add 100-999 to finalList
-		for (String singleNum : singleDigList)
+		for (int i = 1; i < singleDigList.size(); i++)
 		{
 			for (String secondHalf : oneTo99List)
 			{
 				String str = "";
 				if (secondHalf.equals(""))
 				{
-					str = singleNum + "hundred";
+					str = singleDigList.get(i) + "hundred";
 				}
 				else
 				{
-					str = singleNum + "hundredand" + secondHalf;
+					str = singleDigList.get(i) + "hundredand" + secondHalf;
 				}
 				finalList.add(str);	
 			}
@@ -61,10 +67,8 @@ public class Prob17
 		// add 1000 to finalList
 		finalList.add("onethousand");
 
-		// remove "" from index 0
-		finalList.remove(0);
-
 		System.out.println("finalList: " + finalList);
+		System.out.println("length of finalList: " + finalList.size());
 
 
 
