@@ -67,10 +67,17 @@ public class Prob17
 		// add 1000 to finalList
 		finalList.add("onethousand");
 
-		System.out.println("finalList: " + finalList);
-		System.out.println("length of finalList: " + finalList.size());
+		//System.out.println("finalList: " + finalList);
+		//System.out.println("length of finalList: " + finalList.size());
 
+		int count = 0;
 
+		for (String num : finalList)
+		{
+			System.out.println(num + " had " + num.length() + " characters");
+			count += num.length();
+			System.out.println("Count is now: " + count);
+		}
 
 	}
 }
